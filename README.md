@@ -1,4 +1,5 @@
 # Take Home Test for [Artificial](https://artificial.io/)
+Gets top 20 stories on HackerNews and stores in a persistent storage, either JSON or mongo.
 
 ## Technologies required/used
 - [mongodb](https://www.mongodb.com/)
