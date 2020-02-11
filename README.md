@@ -16,10 +16,15 @@ Run with mongodb:
 ```
 npm run mongo
 ```
+This runs the script and adds data into database "hackerNewsStories" and document "stories". It uses a localhost mongodb instance and the default port (`27017`).
+Do note that this implementation does not include user auth as no user information is being stored.
 
-Run with json:
+---
+
+Run with JSON:
 ```
 npm start
 # or
 npm run json
 ```
+This runs the script and adds data into a JSON file named `hacker_news_stories_{epoch-time}.json` within the current directory.
