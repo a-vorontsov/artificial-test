@@ -8,7 +8,6 @@ const getTopStoriesIds = async () => {
         const req = await request.get(`https://hacker-news.firebaseio.com/v0/topstories.json?orderBy="$key"&limitToFirst=20`);
         return req.body;
     } catch (error) {
-        console.error(error.body);
         console.error("Unable to get top 20 HackerNews stories. Please make sure you're connected to the internet.\nContact the developers if this error persists");
         return [];
     }
@@ -19,9 +18,8 @@ const getStoryData = async (storyId) => {
         const req = await request.get(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`);
         return req.body;
     } catch (error) {
-        console.error(error.body);
         console.error(`Unable to get data of story with id ${storyId}. Please make sure you're connected to the internet.\nContact the developers if this error persists`);
-        process.exit(1);
+        return [];
     }
 }
 
@@ -30,7 +28,6 @@ const mapStoryData = async (storiesIds) => {
         const storiesData = await Promise.all(storiesIds.map(storyId => getStoryData(storyId)));
         return storiesData;
     } catch (error) {
-        console.error(error.body);
         console.error("Unable to map story data");
     }
 }
